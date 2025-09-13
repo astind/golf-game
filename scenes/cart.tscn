@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6eefcadds818"]
+
+[ext_resource type="Script" uid="uid://derxer5vwtlhr" path="res://scripts/cart.gd" id="1_bttn7"]
+[ext_resource type="Texture2D" uid="uid://k4hbt5jbfk43" path="res://assests/tilemap_packed.png" id="2_p2bbo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e671f"]
+radius = 5.0
+height = 16.0
+
+[node name="Cart" type="CharacterBody2D"]
+script = ExtResource("1_bttn7")
+
+[node name="sprite_down" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("2_p2bbo")
+region_enabled = true
+region_rect = Rect2(336.024, 235.798, 16.0595, 20.3051)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e671f")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -17)
