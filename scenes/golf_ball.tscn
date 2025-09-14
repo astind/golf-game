@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://mtbiputheoiu"]
+
+[ext_resource type="Script" uid="uid://dmducwuv4mb10" path="res://scripts/golf_ball.gd" id="1_s1xsf"]
+[ext_resource type="Texture2D" uid="uid://b6mvwm5c06tnu" path="res://assests/Ball/Ball-Sprites_0000.png" id="2_70p3a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2nwmu"]
+radius = 2.23607
+
+[node name="golf_ball" type="RigidBody2D"]
+script = ExtResource("1_s1xsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2nwmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_70p3a")
