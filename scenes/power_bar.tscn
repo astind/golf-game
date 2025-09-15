@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5vo5l4yrfjg8"]
+
+[ext_resource type="Script" uid="uid://4dwn64kwgto6" path="res://scripts/power_bar.gd" id="1_aelxg"]
+[ext_resource type="Texture2D" uid="uid://dlw8xjdn6tlmr" path="res://assests/HUD/PowerBar.png" id="2_eb355"]
+[ext_resource type="Texture2D" uid="uid://stch7dwumgce" path="res://assests/HUD/Markers/Markers_0004_Layer-3.png" id="3_cvup1"]
+
+[node name="power_bar" type="Node2D"]
+script = ExtResource("1_aelxg")
+
+[node name="bar" type="Sprite2D" parent="."]
+position = Vector2(0, 60)
+texture = ExtResource("2_eb355")
+
+[node name="marker" type="Sprite2D" parent="."]
+position = Vector2(0, 114)
+texture = ExtResource("3_cvup1")
