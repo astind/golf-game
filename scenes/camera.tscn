@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://cwe8lgmj2ly8l"]
+[gd_scene load_steps=2 format=3 uid="uid://cwe8lgmj2ly8l"]
+
+[ext_resource type="PackedScene" uid="uid://b5vo5l4yrfjg8" path="res://scenes/power_bar.tscn" id="1_cvpoc"]
 
 [node name="camera" type="Camera2D"]
 zoom = Vector2(2, 2)
+
+[node name="power_bar" parent="." instance=ExtResource("1_cvpoc")]
+position = Vector2(103, -150)

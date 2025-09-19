@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 100
 var controlling = true
 var last_direction
+var state = "moving"
 
 func _ready() -> void:
 	Events.cars.car_entered.connect(on_car_entered)
@@ -19,7 +20,10 @@ func on_car_exit(car_pos: Vector2):
 	show()
 
 func get_input():
-	last_direction = Input.get_vector("left", "right", "up", "down")
+	if state == "moving":
+		last_direction = Input.get_vector("left", "right", "up", "down")
+	if Input.is_action_just_released("tee"):
+		Events.swing.start_swing.emit()
 	
 func handle_movement():
 	velocity = last_direction * SPEED

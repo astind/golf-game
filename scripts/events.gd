@@ -1,11 +1,11 @@
 extends Node
 
 var cars = CarEvents.new()
-var ball = BallEvents.new()
+var swing = SwingEvents.new()
 
 class CarEvents:
 	signal car_entered
 	signal car_exited(position: Vector2)
 
-class BallEvents:
-	signal ball_hit
+class SwingEvents:
+	signal start_swing
