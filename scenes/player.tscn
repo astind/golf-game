@@ -57,9 +57,17 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_l71n6")
 }],
-"loop": true,
+"loop": false,
 "name": &"swing",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_i4ail")
+}],
+"loop": false,
+"name": &"tee",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,7 +87,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("12_ujl30")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk_idle",
 "speed": 5.0
 }, {
@@ -109,9 +117,11 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -8)
 sprite_frames = SubResource("SpriteFrames_hqtel")
-animation = &"walk_side"
+animation = &"walk_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, -6)
 shape = SubResource("CapsuleShape2D_4flbx")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

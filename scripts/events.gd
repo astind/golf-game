@@ -9,3 +9,5 @@ class CarEvents:
 
 class SwingEvents:
 	signal start_swing
+	signal cancel_swing
+	signal end_swing(power: float, accuracy: float)
