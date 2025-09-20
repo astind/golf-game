@@ -4,8 +4,9 @@ const SPEED = 70
 const BAR_TOP = 0
 const BAR_BOTTOM = 114
 var moving = false
-var power = 0
-var direction_up = true;
+var power = null
+var accuracy = null
+var direction_up = true
 
 func show_bar():
 	show()
@@ -24,6 +25,15 @@ func go():
 func stop():
 	moving = false
 
+func set_carrot(pos_y: float, carrot_num: int = 1):
+	var carrot;
+	if (carrot_num == 1):
+		carrot = $carrot_1
+	else:
+		carrot = $carrot_2
+	carrot.position.y = pos_y
+	carrot.visible = true
+
 func move_bar(delta: float):
 	var pos = $marker.position.y;
 	if pos <= BAR_TOP:
@@ -39,11 +49,15 @@ func move_bar(delta: float):
 	$marker.position.y = new_pos;
 
 func get_input():
-	if Input.is_action_just_released("action"):
+	if Input.is_action_just_pressed("a"):
 		if moving:
-			power = $marker.position.y
-			print(power)
-			direction_up = false
+			if power == null:
+				power = $marker.position.y
+				direction_up = false
+				set_carrot(power)
+			else:
+				accuracy = $marker.position.y
+				set_carrot(accuracy, 2)
 		else:
 			go()
 

@@ -36,11 +36,11 @@ func exit_cart():
 func get_input():
 	var turn = Input.get_axis("left", "right")
 	steer_dir = turn * deg_to_rad(STEER_ANGLE)
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("a"):
 		acceleration = transform.x * SPEED
-	if Input.is_action_pressed("down"):
+	if Input.is_action_pressed("b"):
 		acceleration = transform.x * BREAKING
-	if Input.is_action_just_released("action"):
+	if Input.is_action_just_released("down"):
 		exit_cart()
 		
 func cal_steering(delta: float):
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		
 func checkActionInput():
-	if Input.is_action_just_released("action"):
+	if Input.is_action_just_released("a"):
 		enter_cart()
 
 func _process(delta: float) -> void:

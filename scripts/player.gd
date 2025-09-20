@@ -22,7 +22,7 @@ func on_car_exit(car_pos: Vector2):
 func get_input():
 	if state == "moving":
 		last_direction = Input.get_vector("left", "right", "up", "down")
-	if Input.is_action_just_released("tee"):
+	if Input.is_action_just_released("b"):
 		Events.swing.start_swing.emit()
 	
 func handle_movement():
